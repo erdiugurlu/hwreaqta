@@ -44,10 +44,10 @@ timestamps {
             }
 
             stage("Docker: push") {
-                docker.withRegistry("https://${dockerRegistry}", "dockerhub_user") {
+                docker.withRegistry('', 'dockerhub_user') {
                         image.push("${version}")
                     }
-                docker.withRegistry("${dockerRegistry}", "dockerhub_user") {
+                docker.withRegistry('', 'dockerhub_user') {
                         image.push("latest")
                 }
                 echo("Docker Image pushed: ${dockerRegistry}/${name}:${version}")
