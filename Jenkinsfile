@@ -54,7 +54,7 @@ timestamps {
             }
 
             stage("Version: tag") {
-                if (env.BRANCH_NAME == "master") {
+                if (env.BRANCH_NAME == "main") {
                     sh(script: """
                         echo ${version} > VERSION
                         git config --local user.email "ugurluerdi@gmail.com"
