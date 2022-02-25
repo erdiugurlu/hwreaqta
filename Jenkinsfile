@@ -54,7 +54,7 @@ timestamps {
                     sh(script: """
                         echo ${version} > VERSION
                         git config --local user.email "ugurluerdi@gmail.com"
-                        git config --local user.name "Erdi Ugurlu"
+                        git config --local user.name "Erdi Uğurlu"
                         git checkout main
                         git add VERSION
                         git status
