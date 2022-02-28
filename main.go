@@ -22,12 +22,12 @@ func readFile() {
 
 //home page
 func homeLink(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome to ReaQta version %s", api_version)
+	fmt.Fprintf(w, "Welcome to ReaQta %s", api_version)
 }
 
 //api
 func apiHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome to ReaQta API version %s", api_version)
+	fmt.Fprintf(w, "Welcome to ReaQta API %s", api_version)
 }
 
 //HealthCheckHandler is for readiness and liveness probes
