@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gorilla/mux"
 )
 
 var api_version = ""
 
-/*
 func readFile() {
 	version, err := os.ReadFile("VERSION")
 	if err != nil {
@@ -18,16 +18,15 @@ func readFile() {
 	}
 	api_version = string(version)
 }
-*/
 
 //home page
 func homeLink(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome to ReaQta %s", api_version)
+	fmt.Fprintf(w, "Welcome to ReaQta version %s", api_version)
 }
 
 //api
 func apiHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome to ReaQta API %s", api_version)
+	fmt.Fprintf(w, "Welcome to ReaQta API version %s", api_version)
 }
 
 //HealthCheckHandler is for readiness and liveness probes
@@ -37,7 +36,7 @@ func healthCheckHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	// read version
-	//readFile()
+	readFile()
 	// create a new router
 	router := mux.NewRouter().StrictSlash(true)
 	log.Print("the service is working...")
