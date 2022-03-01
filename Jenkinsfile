@@ -29,11 +29,11 @@ timestamps {
                 def minorVersion = splitVersion.get(1) as Integer
 
                 if (env.BRANCH_NAME == "master") {
-                    version = "${majorVersion}.${minorVersion}"
+                    version = "${versionFile}"
                 } else if (env.BRANCH_NAME == "main") {
-                    version = "${majorVersion}.${minorVersion}"
+                    version = "${versionFile}"
                 } else {
-                    version = "${majorVersion}.${minorVersion}-${BRANCH_NAME.replaceAll(/[-_\/]/, ".")}.${env.BUILD_ID}.SNAPSHOT"
+                    version = "${versionFile}-${BRANCH_NAME.replaceAll(/[-_\/]/, ".")}.${env.BUILD_ID}.SNAPSHOT"
                 }
             }
 
